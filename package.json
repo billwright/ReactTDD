@@ -1,0 +1,19 @@
+{
+  "name": "appointments",
+  "version": "1.0.0",
+  "description": "Test project from SitePoint book on React Test Driven Development",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/billwright/ReactTDD.git"
+  },
+  "author": "Bill Wright",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/billwright/ReactTDD/issues"
+  },
+  "homepage": "https://github.com/billwright/ReactTDD#readme"
+}
