@@ -1,6 +1,26 @@
-- name: Run Tests
-  uses: Adzz/yarn_command_action@v2.0.0
-  with:
-    # Specify whether to use npm or yarn to run the tests. May be npm or yarn only defaults to yarn
-    package-manager: yarn
-    command: test
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [19.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
